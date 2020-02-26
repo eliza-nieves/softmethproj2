@@ -19,7 +19,9 @@ public class TuitionManager
    }
 
    private void print(){
-
+      for(int i = 0; i < length; i++){
+         System.out.println(list[i].toString() + " tuition due: $" + list[i].tuitionDue());
+      }
    }
 
-} //ProjectManager
+}
