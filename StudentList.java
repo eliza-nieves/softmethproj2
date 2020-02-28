@@ -46,7 +46,17 @@ public class StudentList
 
    public void print(){
       for(int i = 0; i < length; i++){
-         System.out.println(list[i].toString() + "\n");
+         System.out.println(list[i].toString() + " tuition due: $" + list[i].tuitionDue() + "\n");
       }
+   }
+
+   public boolean contains(Student s){
+      boolean contains = false;
+      for(int i = 0; i < length; i++){
+         if(list[i].compareTo(s) == 0){
+            contains = true;
+         }
+      }
+      return contains;
    }
 }
