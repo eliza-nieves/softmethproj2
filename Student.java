@@ -27,8 +27,10 @@ public abstract class Student implements Comparable {
       return -2;
     }
     Student compStudent = (Student) obj;
-    int longerName = (this.fname.compareToIgnoreCase(compStudent.fname) +
-      this.lname.compareToIgnoreCase(compStudent.lname)); //this will be
+
+    String s1 = this.fname + " " + this.lname;
+    String s2 = compStudent.fname + " " + compStudent.lname;
+    int longerName = (s1.compareToIgnoreCase(s2)); //this will be
       //negative if obj is longer
 
     if(longerName < 0){

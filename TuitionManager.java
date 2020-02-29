@@ -62,8 +62,17 @@ public class TuitionManager
             temp = new Outstate(fname, lname, credits, tri);
             break;
          case "N":
-            boolean exchange = stdin.nextBoolean();
-            temp = new International(fname, lname, credits, exchange);
+            String exchange = stdin.next();
+            boolean exch;
+            if(exchange.equals("F")){
+              exch = false;
+            }else if(exchange.equals("T")){
+              exch = true;
+            }else{
+              System.out.println(exchange + " is an invalid argument for International.");
+              return;
+            }
+            temp = new International(fname, lname, credits, exch);
             break;
          default:
             System.out.println("Command " + in + " is not valid.");
