@@ -42,7 +42,7 @@ public abstract class Student implements Comparable {
   //return a string with fname, lname and credit hours; subclasses will
   //be using this method.
   public String toString() {
-    String retStr = this.fname + " " + this.lname + " " + this.credit;
+    String retStr = this.fname + " " + this.lname + ". Credits: " + this.credit;
     return retStr;
   }
   //compute the tuition due; concrete implementation is required in the subclasses.

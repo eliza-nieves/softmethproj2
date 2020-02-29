@@ -40,9 +40,9 @@ public class Outstate extends Student{
   public String toString(){
     String res = super.toString();
     if(this.tristate){
-      res += " In the Tristate Area.";
+      res += ". Tristate Area.";
     }else{
-      res += "Not in the Tristate Area.";
+      res += ". Not Tristate Area.";
     }
     return res;
   }

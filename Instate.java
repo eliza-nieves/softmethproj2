@@ -27,13 +27,18 @@ public class Instate extends Student{
     }else{
       uniFee = 1441;
     }
-    tuition = (realCr * perCredit) + uniFee - extraFunds;
+    if(realCr < 12){
+      tuition = (realCr * perCredit) + uniFee;
+    }else{
+      tuition = (realCr * perCredit) + uniFee - extraFunds;
+    }
+
     return tuition;
   }
 
   public String toString(){
     String res = super.toString();
-    res += " " + this.funds;
+    res += ". Funds: " + this.funds + ".";
     return res;
   }
 

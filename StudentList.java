@@ -6,18 +6,22 @@ public class StudentList
 {
    private Student[] list;
    private int length;
+   private final int GROW_SIZE = 4; //grown and init size
 
    public StudentList(){
       length = 0;
-      list = new Student[4];
+      list = new Student[GROW_SIZE];
    }
 
    private Student[] grow(Student[] og){
-      Student[] temp = new Student[length + 4];
+      Student[] temp = new Student[length + GROW_SIZE];
+      System.arraycopy(og,0,temp,0,og.length);
+      /*
       for(int i = 0; i < length; i++){
          temp[i] = og[i];
       }
-      this.length += 4;
+      */ //@RAHEEL: let me know if you wanna use this loop or arraycopy as above
+      this.length += GROW_SIZE;
       return temp;
    }
 
