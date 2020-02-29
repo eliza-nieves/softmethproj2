@@ -27,8 +27,11 @@ public abstract class Student implements Comparable {
       return -2;
     }
     Student compStudent = (Student) obj;
-    int longerName = (this.fname.compareToIgnoreCase(compStudent.fname) +
-      this.lname.compareToIgnoreCase(compStudent.lname)); //this will be negative if obj is longer
+
+    String s1 = this.fname + " " + this.lname;
+    String s2 = compStudent.fname + " " + compStudent.lname;
+    int longerName = (s1.compareToIgnoreCase(s2)); //this will be
+      //negative if obj is longer
 
     if(longerName < 0){
       return -1;
@@ -42,7 +45,7 @@ public abstract class Student implements Comparable {
   //return a string with fname, lname and credit hours; subclasses will
   //be using this method.
   public String toString() {
-    String retStr = this.fname + " " + this.lname + " " + this.credit;
+    String retStr = this.fname + " " + this.lname + ". Credits: " + this.credit;
     return retStr;
   }
   //compute the tuition due; concrete implementation is required in the subclasses.

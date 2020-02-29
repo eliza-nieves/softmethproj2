@@ -6,27 +6,28 @@ public class StudentList
 {
    private Student[] list;
    private int length;
+   private final int GROW_SIZE = 4; //grown and init size
 
    public StudentList(){
       length = 0;
-      list = new Student[4];
+      list = new Student[GROW_SIZE];
    }
 
    private Student[] grow(Student[] og){
-      Student[] temp = new Student[length + 4];
-      for(int i = 0; i < length; i++){
-         temp[i] = og[i];
-      }
-      this.length += 4;
+      Student[] temp = new Student[length + GROW_SIZE];
+      System.arraycopy(og,0,temp,0,og.length);
+
       return temp;
    }
 
    public void add(Student s){
+      this.length++;
+
       if(length >= list.length){
          list = grow(list);
       }
-      list[length] = s;
-      this.length++;
+      list[length - 1] = s;
+      
       return;
    }
 
@@ -54,7 +55,9 @@ public class StudentList
    public boolean contains(Student s){
       boolean contains = false;
       for(int i = 0; i < length; i++){
+
          if(list[i].compareTo(s) == 0){
+
             contains = true;
          }
       }
