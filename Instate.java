@@ -1,6 +1,6 @@
 /**
-@author Raheel Ozair
 @author Eliza Nieves
+@author Raheel Ozair
 */
 
 public class Instate extends Student{
@@ -18,7 +18,7 @@ public class Instate extends Student{
     int perCredit = 433; //per credit price for instate
     int extraFunds = this.funds; //copy this object's funds
 
-    if(realCr >= 15){
+    if(realCr > 15){
       realCr = 15;
     }
     int uniFee; //part-time or full-time

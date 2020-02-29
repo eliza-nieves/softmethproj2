@@ -1,5 +1,6 @@
 /**
  @author Eliza Nieves
+ @author Raheel Ozair
  */
 public class StudentList
 {
