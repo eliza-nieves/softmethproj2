@@ -16,21 +16,18 @@ public class StudentList
    private Student[] grow(Student[] og){
       Student[] temp = new Student[length + GROW_SIZE];
       System.arraycopy(og,0,temp,0,og.length);
-      /*
-      for(int i = 0; i < length; i++){
-         temp[i] = og[i];
-      }
-      */ //@RAHEEL: let me know if you wanna use this loop or arraycopy as above
-      this.length += GROW_SIZE;
+
       return temp;
    }
 
    public void add(Student s){
+      this.length++;
+
       if(length >= list.length){
          list = grow(list);
       }
-      list[length] = s;
-      this.length++;
+      list[length - 1] = s;
+      
       return;
    }
 
@@ -58,7 +55,9 @@ public class StudentList
    public boolean contains(Student s){
       boolean contains = false;
       for(int i = 0; i < length; i++){
+
          if(list[i].compareTo(s) == 0){
+
             contains = true;
          }
       }

@@ -42,23 +42,34 @@ public class TuitionManager
       String lname = stdin.next();
       int credits = stdin.nextInt();
       Student temp;
+      //boolean success = true;
       switch (in) {
          case "I":
             int funding = stdin.nextInt();
             temp = new Instate(fname, lname, credits, funding);
             break;
          case "O":
-            boolean tristate = stdin.nextBoolean();
-            temp = new Outstate(fname, lname, credits, tristate);
+            String tristate = stdin.next();
+            boolean tri;
+            if(tristate.equals("F")){
+              tri = false;
+            }else if(tristate.equals("T")){
+              tri = true;
+            }else{
+              System.out.println(tristate + " is an invalid argument for Outstate.");
+              return;
+            }
+            temp = new Outstate(fname, lname, credits, tri);
             break;
          case "N":
             boolean exchange = stdin.nextBoolean();
             temp = new International(fname, lname, credits, exchange);
             break;
          default:
-            break;
+            System.out.println("Command " + in + " is not valid.");
+            return;
       }//instantiates the student
-
+      System.out.println(temp.toString());
       boolean preexist = list.contains(temp);
       if(preexist){
          System.out.println("Student is already present in list.");
@@ -71,10 +82,10 @@ public class TuitionManager
    private void remove(){
       String fname = stdin.next();
       String lname = stdin.next();
-      Student temp = new Student(fname, lname, 0);
+      Instate temp = new Instate(fname, lname, 0,0);
       list.remove(temp);
       return;
-   }//done
+   }
 
    private void print(){
       list.print();
