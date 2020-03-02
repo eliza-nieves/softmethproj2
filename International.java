@@ -1,15 +1,28 @@
 /**
-@author Eliza Nieves
-@author Raheel Ozair
+ * This class is used in order to hold information specific to international students,
+ * namely whether they are on exchange.
+ * @author Raheel Ozair
+ * @author Eliza Nieves
 */
 
 public class International extends Student{
   private boolean exchange;
 
+  /**
+   * Constructor for international students.
+   * @param fname First name of the student.
+   * @param lname Last name of the student.
+   * @param credit Number of credits being taken.
+   * @param exchange Boolean as to whether the student is on exchange, true if they are.
+   */
   public International(String fname, String lname, int credit, boolean exchange){
     super(fname,lname,credit);
     this.exchange = exchange;
   }
+  /**
+   * Returns the amount of tuition due for an int. student.
+   * @return the amount of tuition due for a student.
+   */
   public int tuitionDue(){
     int tuition; //resulting tuition due
     int realCr = this.credit; //copy this object's credit number
@@ -32,6 +45,12 @@ public class International extends Student{
     }
     return tuition;
   }
+
+  /**
+   * Gives the string representation of the student, appending onto the
+   * super representation with the tristate area status of the student.
+   * @return the string representation of the student.
+   */
   public String toString(){
     String res = super.toString();
 

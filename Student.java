@@ -25,8 +25,8 @@ public abstract class Student implements Comparable {
    * Compares a student instance to another object via the first and last name
    * of the other object.
    * @param obj The object to compare the student instance to.
-   * @return Returns 0 if the objects are the same, -1 if this.fname and lname is < obj’s, 
-   * 1 if this.fname and lname is > obj’s, and -2 is obj is not an instance of student.
+   * @return Returns 0 if the objects are the same, -1 if this.fname and lname is less than obj's, 
+   * 1 if this.fname and lname is greater than obj's, and -2 is obj is not an instance of student.
    */
   public int compareTo(Object obj){
     if(!(obj instanceof Student)){

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"proj2","l":"Instate"},{"p":"proj2","l":"International"},{"p":"proj2","l":"Outstate"},{"p":"proj2","l":"Prog2"},{"p":"proj2","l":"Student"},{"p":"proj2","l":"StudentList"},{"p":"proj2","l":"TuitionManager"}]
