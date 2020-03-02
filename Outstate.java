@@ -64,4 +64,31 @@ public class Outstate extends Student{
     }
     return res;
   }
+
+  public static void main(String[] args){
+    String[] firstnames = new String[6];
+    String[] lastnames = new String[6];
+    int[] credits = new int[6];
+    for(int i = 0; i < 6; i++){
+      firstnames[i] = "f" + (i - '0');
+      lastnames[i] = "l" + (i - '0');
+      if(i < 2){
+        credits[i] = 17;
+      } else if(i < 4){
+        credits[i] = 13;
+      }else{
+        credits[i] = 11;
+      }
+    }
+  
+    Student[] test = new Student[6];
+    boolean tristate = false;
+    for(int j = 0; j < 6; j++){
+      test[j] = new Outstate(firstnames[j], lastnames[j], credits[j], tristate);
+      tristate = (tristate == true)? false : true;
+      System.out.println("Student " + (j+1) + ": " + test[j].toString());
+      System.out.println(test[j].tuitionDue());
+    }
+  
+    }//testbed main
 }
