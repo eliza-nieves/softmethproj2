@@ -1,9 +1,10 @@
 /**
  * This class is used in order to hold information specific to instate students,
  * namely student funding.
+ * 
  * @author Raheel Ozair
  * @author Eliza Nieves
-*/
+ */
 
 public class Instate extends Student{
 
