@@ -41,12 +41,11 @@ public class Outstate extends Student{
       uniFee = 846; //part-time fee
     }else{
       uniFee = 1441;//full-time fee
+      if(isTri){
+        triDisc = 200;
+      }
     }
-
-    if(isTri){
-      triDisc = this.credit * 200;//discount for being in the tristate
-    }
-    tuition = (realCr * perCredit) + uniFee - triDisc;
+    tuition = (realCr * (perCredit - triDisc)) + uniFee;
     return tuition;
 
   }
