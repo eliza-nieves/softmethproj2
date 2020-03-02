@@ -1,17 +1,30 @@
 /**
-@author Eliza Nieves
-@author Raheel Ozair
+ * This class is used in order to hold information specific to instate students,
+ * namely student funding.
+ * @author Raheel Ozair
+ * @author Eliza Nieves
 */
 
 public class Instate extends Student{
 
   private int funds;
 
-
+  /**
+   * Constructor for instate students.
+   * @param fname First name of the student.
+   * @param lname Last name of the student.
+   * @param credit Number of credits being taken.
+   * @param funds Amount of funding received.
+   */
   public Instate(String fname, String lname, int credit, int funds){
     super(fname,lname,credit);
     this.funds = funds;
   }
+
+  /**
+   * Returns the amount of tuition due for an instate student.
+   * @return the amount of tuition due for a student.
+   */
   public int tuitionDue(){
     int tuition; //resulting tuition due
     int realCr = this.credit; //copy this object's credit number
@@ -36,6 +49,11 @@ public class Instate extends Student{
     return tuition;
   }
 
+  /**
+   * Gives the string representation of the student, appending onto the
+   * super representation with the funds of the student.
+   * @return the string representation of the student.
+   */
   public String toString(){
     String res = super.toString();
     res += ". Funds: " + this.funds + ".";
