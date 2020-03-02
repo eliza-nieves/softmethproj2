@@ -1,7 +1,5 @@
-//package softwaremethproject1;
 /**
 Container class to run TuitionManager.java
-@author Lily Chang
 @author Eliza Nieves
 @author Raheel Ozair
  */

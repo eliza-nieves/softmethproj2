@@ -1,12 +1,18 @@
 import java.util.Scanner;
 /**
- @author Eliza Nieves
+ * A manager for users to create and manipulate student lists via the command line.
+ * @author Eliza Nieves
+ * @author Raheel Ozair
  */
 public class TuitionManager
 {
    Scanner stdin = new Scanner(System.in);
    StudentList list = new StudentList();
 
+   /**
+    * Runs tuition manager and continuously reads input from the command line,
+    executing different methods depending on input.
+    */
    public void run(){
      boolean done = false;
      while(done == false){
@@ -37,6 +43,11 @@ public class TuitionManager
      }
    }
 
+   /**
+    * Adds a student to the student list.
+    * @param in A string giving the status of the student as either instate, outstate,
+    or international.
+    */
    private void add(String in){
       String fname = stdin.next();
       String lname = stdin.next();
@@ -88,6 +99,9 @@ public class TuitionManager
       return;
    }
 
+   /**
+    * Removes a student from the list.
+    */
    private void remove(){
       String fname = stdin.next();
       String lname = stdin.next();
@@ -96,6 +110,9 @@ public class TuitionManager
       return;
    }
 
+   /**
+    * Prints out the list.
+    */
    private void print(){
       list.print();
    }
