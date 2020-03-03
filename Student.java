@@ -1,26 +1,33 @@
 /**
- @author Eliza Nieves
- @author Raheel Ozair
+ * Superclass for all student types.
+ * @author Eliza Nieves
+ * @author Raheel Ozair
  */
 
 public abstract class Student implements Comparable {
   private String fname;
   private String lname;
   protected int credit;
+
+  /**
+   * Basic constructor for a generic student.
+   * @param fname First name of student.
+   * @param lname Last name of student.
+   * @param credit Number of credits being taken.
+   */
   public Student(String fname, String lname, int credit) {
     this.fname = fname;
     this.lname = lname;
     this.credit = credit;
   }
-  //constructor
-  //must implement compareTo method because Student class implements the
-  //Comparable Interface
-  //return 0 if fname and lname of the two students are equal,
-  //return -1 if this fname and lname is < obj’s, return 1 if this fname and
-  //lname is > obj’s
-  //Hint: use the .equals and compareToIgnoreCase methods of the String class
-  //to compare fname
-  //and lname; names are not case-sensitive
+
+  /**
+   * Compares a student instance to another object via the first and last name
+   * of the other object.
+   * @param obj The object to compare the student instance to.
+   * @return Returns 0 if the objects are the same, -1 if this.fname and lname is less than obj's, 
+   * 1 if this.fname and lname is greater than obj's, and -2 is obj is not an instance of student.
+   */
   public int compareTo(Object obj){
     if(!(obj instanceof Student)){
       System.out.println("This is not a student.");
@@ -42,13 +49,21 @@ public abstract class Student implements Comparable {
     }
 
   }
-  //return a string with fname, lname and credit hours; subclasses will
-  //be using this method.
+
+  /**
+   * Returns the string representation of a student, which includes their
+   * full name and credits taken.
+   * @return The string representation of a student.
+   */
   public String toString() {
     String retStr = this.fname + " " + this.lname + ". Credits: " + this.credit;
     return retStr;
   }
-  //compute the tuition due; concrete implementation is required in the subclasses.
+  
+  /**
+  * Abstract method to calculates the tuition due for a specific student.
+  * @return The tuition due for a specific student.
+  */
   public abstract int tuitionDue();
 
 }

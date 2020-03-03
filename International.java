@@ -1,15 +1,28 @@
 /**
-@author Eliza Nieves
-@author Raheel Ozair
+ * This class is used in order to hold information specific to international students,
+ * namely whether they are on exchange.
+ * @author Raheel Ozair
+ * @author Eliza Nieves
 */
 
 public class International extends Student{
   private boolean exchange;
 
+  /**
+   * Constructor for international students.
+   * @param fname First name of the student.
+   * @param lname Last name of the student.
+   * @param credit Number of credits being taken.
+   * @param exchange Boolean as to whether the student is on exchange, true if they are.
+   */
   public International(String fname, String lname, int credit, boolean exchange){
     super(fname,lname,credit);
     this.exchange = exchange;
   }
+  /**
+   * Returns the amount of tuition due for an int. student.
+   * @return the amount of tuition due for a student.
+   */
   public int tuitionDue(){
     int tuition; //resulting tuition due
     int realCr = this.credit; //copy this object's credit number
@@ -20,8 +33,10 @@ public class International extends Student{
     if(realCr > 15){
       realCr = 15;
     }
-    if(realCr < 12){
+    if(realCr < 12 && exch == false){
       uniFee = 846;
+      //if they are on exchange they pay the
+      //full time uni fee even if they are part time
     }else{
       uniFee = 1441;
     }
@@ -32,6 +47,12 @@ public class International extends Student{
     }
     return tuition;
   }
+
+  /**
+   * Gives the string representation of the student, appending onto the
+   * super representation with the tristate area status of the student.
+   * @return the string representation of the student.
+   */
   public String toString(){
     String res = super.toString();
 
@@ -42,4 +63,31 @@ public class International extends Student{
     }
     return res;
   }
+
+  public static void main(String[] args){
+  String[] firstnames = new String[6];
+  String[] lastnames = new String[6];
+  int[] credits = new int[6];
+  for(int i = 0; i < 6; i++){
+    firstnames[i] = "f" + (i - '0');
+    lastnames[i] = "l" + (i - '0');
+    if(i < 2){
+      credits[i] = 17;
+    } else if(i < 4){
+      credits[i] = 13;
+    }else{
+      credits[i] = 11;
+    }
+  }
+
+  Student[] test = new Student[6];
+  boolean exch = false;
+  for(int j = 0; j < 6; j++){
+    test[j] = new International(firstnames[j], lastnames[j], credits[j], exch);
+    exch = (exch == true)? false : true;
+    System.out.println("Student " + (j+1) + ": " + test[j].toString());
+    System.out.println(test[j].tuitionDue());
+  }
+
+  }//testbed main
 }
