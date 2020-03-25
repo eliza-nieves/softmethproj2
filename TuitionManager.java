@@ -57,7 +57,12 @@ public class TuitionManager
       switch (in) {
          case "I":
             int funding = stdin.nextInt();
-            temp = new Instate(fname, lname, credits, funding);
+            if(validCredits(credits)){
+              temp = new Instate(fname, lname, credits, funding);
+            }else{
+              System.out.println("Credits can not be 0 or negative.");
+              return;
+            }
             break;
          case "O":
             String tristate = stdin.next();
@@ -70,7 +75,12 @@ public class TuitionManager
               System.out.println(tristate + " is an invalid argument for Outstate.");
               return;
             }
-            temp = new Outstate(fname, lname, credits, tri);
+            if(validCredits(credits)){
+              temp = new Outstate(fname, lname, credits, tri);
+            }else{
+              System.out.println("Credits can not be 0 or negative.");
+              return;
+            }
             break;
          case "N":
             String exchange = stdin.next();
@@ -83,7 +93,12 @@ public class TuitionManager
               System.out.println(exchange + " is an invalid argument for International.");
               return;
             }
-            temp = new International(fname, lname, credits, exch);
+            if(validCredits(credits)){
+              temp = new International(fname, lname, credits, exch);
+            }else{
+              System.out.println("Credits can not be 0 or negative.");
+              return;
+            }
             break;
          default:
             System.out.println("Command " + in + " is not valid.");
@@ -115,6 +130,14 @@ public class TuitionManager
     */
    private void print(){
       list.print();
+   }
+
+   private boolean validCredits(int creds){
+     int nCreds = creds;
+     if(nCreds <= 0){
+       return false;
+     }
+     return true;
    }
 
 }

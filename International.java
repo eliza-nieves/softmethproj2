@@ -30,15 +30,15 @@ public class International extends Student{
     boolean exch = this.exchange;
     int uniFee; //part-time or full-time
     int intStudentFee = 350; //international student fee
-    if(realCr > 15){
-      realCr = 15;
+    if(realCr > realCrCheck){
+      realCr = realCrCheck;
     }
-    if(realCr < 12 && exch == false){
-      uniFee = 846;
+    if(realCr < ftCheck && exch == false){
+      uniFee = ptFee;
       //if they are on exchange they pay the
       //full time uni fee even if they are part time
     }else{
-      uniFee = 1441;
+      uniFee = ftFee;
     }
     if(exch){
       tuition = uniFee + intStudentFee;
