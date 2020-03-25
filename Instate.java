@@ -1,7 +1,7 @@
 /**
  * This class is used in order to hold information specific to instate students,
  * namely student funding.
- * 
+ *
  * @author Raheel Ozair
  * @author Eliza Nieves
  */
@@ -32,16 +32,18 @@ public class Instate extends Student{
     int perCredit = 433; //per credit price for instate
     int extraFunds = this.funds; //copy this object's funds
 
-    if(realCr > 15){
-      realCr = 15;
+
+
+    if(realCr > realCrCheck){
+      realCr = realCrCheck;
     }
     int uniFee; //part-time or full-time
-    if(realCr < 12){
-      uniFee = 846;
+    if(realCr < ftCheck){
+      uniFee = ptFee;
     }else{
-      uniFee = 1441;
+      uniFee = ftFee;
     }
-    if(realCr < 12){
+    if(realCr < ftCheck){
       tuition = (realCr * perCredit) + uniFee;
     }else{
       tuition = (realCr * perCredit) + uniFee - extraFunds;
@@ -76,7 +78,7 @@ public class Instate extends Student{
         credits[i] = 11;
       }
     }
-  
+
     Student[] test = new Student[6];
     int funds = 1000;
     for(int j = 0; j < 6; j++){
@@ -85,7 +87,7 @@ public class Instate extends Student{
       System.out.println("Student " + (j+1) + ": " + test[j].toString());
       System.out.println(test[j].tuitionDue());
     }
-  
+
     }//testbed main
 
 }

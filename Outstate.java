@@ -33,16 +33,17 @@ public class Outstate extends Student{
     boolean isTri = this.tristate;
     int triDisc = 0;
     int uniFee;
+    int tristateDiscount = 200;
 
-    if(realCr > 15){
-      realCr = 15; //real number of credits to be paid for
+    if(realCr > realCrCheck){
+      realCr = realCrCheck; //real number of credits to be paid for
     }
-    if(realCr < 12){
-      uniFee = 846; //part-time fee
+    if(realCr < ftCheck){
+      uniFee = ptFee; //part-time fee
     }else{
-      uniFee = 1441;//full-time fee
+      uniFee = ftFee;//full-time fee
       if(isTri){
-        triDisc = 200;
+        triDisc = tristateDiscount;
       }
     }
     tuition = (realCr * (perCredit - triDisc)) + uniFee;
@@ -80,7 +81,7 @@ public class Outstate extends Student{
         credits[i] = 11;
       }
     }
-  
+
     Student[] test = new Student[6];
     boolean tristate = false;
     for(int j = 0; j < 6; j++){
@@ -89,6 +90,6 @@ public class Outstate extends Student{
       System.out.println("Student " + (j+1) + ": " + test[j].toString());
       System.out.println(test[j].tuitionDue());
     }
-  
+
     }//testbed main
 }

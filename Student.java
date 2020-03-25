@@ -8,6 +8,10 @@ public abstract class Student implements Comparable {
   private String fname;
   private String lname;
   protected int credit;
+  private int realCrCheck = 15; //for checking if credits greater than 15
+  private int ftCheck = 12; //base for checking if full time or part time
+  private int ptFee = 846; //base part-time fee
+  private int ftFee = 1441; //base full-time fee
 
   /**
    * Basic constructor for a generic student.
@@ -25,7 +29,7 @@ public abstract class Student implements Comparable {
    * Compares a student instance to another object via the first and last name
    * of the other object.
    * @param obj The object to compare the student instance to.
-   * @return Returns 0 if the objects are the same, -1 if this.fname and lname is less than obj's, 
+   * @return Returns 0 if the objects are the same, -1 if this.fname and lname is less than obj's,
    * 1 if this.fname and lname is greater than obj's, and -2 is obj is not an instance of student.
    */
   public int compareTo(Object obj){
@@ -59,7 +63,7 @@ public abstract class Student implements Comparable {
     String retStr = this.fname + " " + this.lname + ". Credits: " + this.credit;
     return retStr;
   }
-  
+
   /**
   * Abstract method to calculates the tuition due for a specific student.
   * @return The tuition due for a specific student.
